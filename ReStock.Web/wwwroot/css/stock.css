@@ -1,0 +1,62 @@
+﻿/* Style for shopping list checkbox */
+.listCheckBoxContainer {
+    border: 1px solid rgb(0, 0, 0);
+    width: 80vw;
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+.checkBoxText:nth-child(odd) {
+    display: block;
+    background-color: rgb(29, 221, 221);
+}
+
+/* Style for change stock items button*/
+#addNewShoppingItemBtn {
+    font-size: 8vw;
+    height: 10vw;
+    width: 10vw;
+    margin-left: 1vw;
+    background-color: bisque;
+    border-radius: 2rem;
+}
+
+    #addNewShoppingItemBtn:hover {
+        background-color: rgb(35, 172, 76);
+    }
+
+/* Style for stock table*/
+#stockTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #stockTable td,
+    #stockTable th {
+        border: 1px solid #ddd;
+        padding: 6px;
+    }
+
+    #stockTable tr:nth-child(even) {
+        background-color: #10dcf7;
+    }
+
+    #stockTable th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #f5581a;
+        color: white;
+    }
+
+.stockTableRemoveFromShoppingListButton {
+    float: right;
+    width: 20%;
+}
+
+.stockTableAddToShoppingListButton {
+    float: right;
+    width: 20%;
+    margin-right: 4px;
+}
