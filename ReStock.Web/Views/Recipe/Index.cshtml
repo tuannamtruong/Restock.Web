@@ -2,6 +2,29 @@
 @{
     ViewData["Title"] = "Recipe";
 }
+@section Styles {
+    <link href="@Url.Content("~/css/recipe.css")" rel="stylesheet" type="text/css" />
+}
+<h1>Name of the recipe</h1>
+<div class="d-flex flex-nowrap">
+        <!-- Loop this BEGIN -->
+        <div id="listIngridients" class="col-3 m-1">
+            <label class="textIngredient"> Ingridient 1 </label>
+            <label class="textIngredient"> Ingridient 2 </label>
+        </div>
+        <div id="cookInstruction" class="col-9 m-1">
+            <p>Do this do that. Food.</p>
+        </div>
+        <!-- Loop this END -->
+</div>
 
-<h1>Recipe</h1>
-
+<!--To the navbar-->
+<div>
+    <button id="addNewRecipe">+</button>
+    <br />
+    <br />
+    <button id="searchRecipe">Search</button>
+    <br />
+    <br />
+    <button id="getAvailableRecipe">Highlight Available Ingridients</button>
+</div>

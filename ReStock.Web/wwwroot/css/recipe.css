@@ -1,0 +1,41 @@
+﻿/* Style for ingridients list text */
+#listIngridients {
+    border: 3px solid rgb(0, 0, 0);
+    width: 35vw;
+    height: 55vh;
+}
+
+.textIngredient {
+    display: block;
+    border-bottom: 1px solid black;
+}
+
+/* Style for instruction paragraph */
+#cookInstruction {
+    border: 3px solid rgb(0, 0, 0);
+    width: 45vw;
+    height: 55vh;
+}
+
+    #cookInstruction p {
+        display: inline;
+    }
+
+/* Style for buttons*/
+#addNewRecipe {
+    font-size: 6vw;
+    height: 7vw;
+    width: 7vw;
+}
+
+#searchRecipe {
+    font-size: 1vw;
+    height: 7vw;
+    width: 7vw;
+}
+
+#getAvailableRecipe {
+    font-size: 1vw;
+    height: 7vw;
+    width: 7vw;
+}
