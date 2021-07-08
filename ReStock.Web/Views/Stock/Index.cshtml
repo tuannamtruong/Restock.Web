@@ -2,20 +2,13 @@
     ViewData["Title"] = "Stock";
 }
 @section Styles {
-    @*<link rel="stylesheet" href="@Url.Content("~/css/stock.css")" />*@
+    <link href="@Url.Content("~/css/stock.css")" rel="stylesheet" type="text/css" />
 }
-@*<div>
-        <div class="d-flex bd-highlight">
-            <div class="p-2 flex-grow-1 bd-highlight">Flex item</div>
-            <div class="p-2 bd-highlight">Flex item</div>
-            <div class="p-2 bd-highlight">Third flex item</div>
-        </div>
-    </div>*@
 
 <!-- Shopping List  -->
-<div class="d-flex flex-row">
+<div class="d-flex">
     <!--Item List-->
-    <div>
+    <div class="listCheckBoxContainer">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
             <label class="form-check-label" for="defaultCheck1">
@@ -30,9 +23,74 @@
         </div>
     </div>
     <!--Item CRUD-->
-    <div>
+    <div class="ml-4">
         <button type="button" class="btn btn-success">+</button>
     </div>
 </div>
 
 
+<!-- Items in Stock  -->
+<div class="d-flex mt-5">
+    <table class="table table-bordered table-striped" id="stockTable">
+        <thead class="thead-dark">
+            <tr>
+                <th colspan="2" scope="col">Spices</th>
+                <th colspan="2" scope="col">Fruits and Veggies</th>
+                <th colspan="2" scope="col">Proteins</th>
+                <th colspan="2" scope="col">Other</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                Salt
+                <button type="button" class="stockTableRemoveFromShoppingListButton">-</button>
+                <button type="button" class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>1</td>
+            <td>
+                Apple<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>5</td>
+            <td>
+                Eggs<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>10</td>
+            <td>
+                Icecream<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>
+                Pepper<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>2</td>
+            <td>
+                Banana<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>5</td>
+            <td>
+                Fish<button class="stockTableRemoveFromShoppingListButton">
+                    -
+                </button>
+                <button class="stockTableAddToShoppingListButton">+</button>
+            </td>
+            <td>200g</td>
+        </tr>
+    </table>
+</div>
