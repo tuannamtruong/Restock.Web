@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ReStock.Web.Services.Data;
 
 namespace ReStock.Web
 {
@@ -19,6 +20,7 @@ namespace ReStock.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddTransient<IStockRepository, StockRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

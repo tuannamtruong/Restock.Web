@@ -1,4 +1,7 @@
-﻿@{
+﻿@using ReStock.Web.Services.Utils
+@model StockViewModel
+
+@{
     ViewData["Title"] = "Stock";
 }
 @section Styles {
@@ -28,20 +31,17 @@
 <div class="d-flex">
     <!--Item List-->
     <div class="listCheckBoxContainer" id="shoppingList">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1 To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1  To buy 1
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-            <label class="form-check-label" for="defaultCheck2">
-                To buy 2
-            </label>
-        </div>
+        @foreach(var shoppingItem in Model.ShoppingList)
+        {
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    @shoppingItem.ToUpperFirstChar()
+                </label>
+            </div>
+        }
     </div>
-    <!--Item CRUD-->
+    <!--Item Action-->
     <div class="ml-4">
         <button type="button" class="btn btn-success" id="addShoppingItemBtn">+</button>
     </div>
