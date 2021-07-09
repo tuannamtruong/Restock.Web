@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ReStock.Web.Models;
+using ReStock.Web.ViewModels;
 
 namespace ReStock.Web.Controllers
 {

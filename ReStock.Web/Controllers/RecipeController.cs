@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ReStock.Web.Models;
+using ReStock.Web.ViewModels;
 using System.Diagnostics;
 
 namespace ReStock.Web.Controllers

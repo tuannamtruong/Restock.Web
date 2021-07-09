@@ -1,6 +1,6 @@
 using System;
 
-namespace ReStock.Web.Models
+namespace ReStock.Web.ViewModels
 {
     public class ErrorViewModel
     {
