@@ -12,7 +12,7 @@
 }
 
 
-<div id="backdrop" class="visible"></div>
+<div id="backdrop"></div>
 <!-- Modal for adding specific shopping list item -->
 <div class="modal" id="addModal">
     <div class="modalContent">
@@ -47,69 +47,34 @@
     </div>
 </div>
 
-
-<!-- Items in Stock  -->
+<!-- Stock  -->
 <div class="d-flex mt-5">
-    <table class="table table-bordered table-striped" id="stockTable">
-        <thead class="thead-dark">
-            <tr>
-                <th colspan="2" scope="col">Spices</th>
-                <th colspan="2" scope="col">Fruits and Veggies</th>
-                <th colspan="2" scope="col">Proteins</th>
-                <th colspan="2" scope="col">Other</th>
+    <!--One table for each category-->
+    @foreach(var item in Model.StockItemGroupByType){
+    <div class="flex-fill">
+        <table class="table table-bordered table-striped stockTable">
+            <!--Table header: Stock type-->
+            <tr class="thead-dark">
+                <th colspan="2" scope="col">
+                    @item.Key
+                </th>
             </tr>
-        </thead>
-        <tr>
-            <td>
-                Salt
-                <button type="button" class="stockTableRemoveFromShoppingListButton">-</button>
-                <button type="button" class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>1</td>
-            <td>
-                Apple<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>5</td>
-            <td>
-                Eggs<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>10</td>
-            <td>
-                Icecream<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>
-                Pepper<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>2</td>
-            <td>
-                Banana<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>5</td>
-            <td>
-                Fish<button class="stockTableRemoveFromShoppingListButton">
-                    -
-                </button>
-                <button class="stockTableAddToShoppingListButton">+</button>
-            </td>
-            <td>200g</td>
-        </tr>
-    </table>
+            <!--Table content: Stock item for each type-->
+            @foreach(var value in item.Value){
+            <tr>
+                <td>
+                    @value.Name
+                    <button class="stockTableRemoveFromShoppingListButton">-</button>
+                    <button class="stockTableAddToShoppingListButton">+</button>
+                </td>
+                <td>
+                    @value.Amount
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+}
 </div>
+
+

@@ -2,10 +2,10 @@
 {
     public enum StockType
     {
-        Spices = 0,
-        FruitsAndVeggies = 1,
-        Proteins = 2,
-        Other = 3
+        Spices,
+        FruitsAndVeggies,
+        Proteins,
+        Other 
     }
     public class StockItem
     {
