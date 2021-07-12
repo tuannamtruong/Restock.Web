@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReStock.Web", "ReStock.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReStock.DataProvider", "ReStock.DataProvider\ReStock.DataProvider.csproj", "{A4F3868E-38EE-41FB-8624-CC2946CC609F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReStock.Models", "ReStock.Models\ReStock.Models.csproj", "{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A4F3868E-38EE-41FB-8624-CC2946CC609F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4F3868E-38EE-41FB-8624-CC2946CC609F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4F3868E-38EE-41FB-8624-CC2946CC609F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
