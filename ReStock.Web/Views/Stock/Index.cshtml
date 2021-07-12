@@ -36,7 +36,11 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
             <label class="form-check-label" for="defaultCheck1">
-                @shoppingItem.ToUpperFirstChar()
+                @shoppingItem.ItemName.ToUpperFirstChar()
+                @if(!string.IsNullOrEmpty(shoppingItem.Amount))
+                {
+                <a>(@shoppingItem.Amount)</a>
+                }
             </label>
         </div>
         }

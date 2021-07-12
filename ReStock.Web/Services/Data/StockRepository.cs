@@ -9,7 +9,6 @@ namespace ReStock.Web.Services.Data
     public class StockRepository : IStockRepository //RepositoryBase<RestockDbContext, StockItem>,
     {
         private RestockDbContext _dbContext { get; }
-        //protected Func<RestockDbContext> DbContextCreator { get; }
 
         public StockRepository(RestockDbContext dbContextCreator)
         {

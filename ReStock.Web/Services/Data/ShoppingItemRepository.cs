@@ -7,14 +7,21 @@ using System.Threading.Tasks;
 
 namespace ReStock.Web.Services.Data
 {
-    public class ShoppingItemRepository : IShoppingItemRepository//: RepositoryBase<RestockDbContext,StockItem>,
+    public class ShoppingItemRepository : IShoppingItemRepository //RepositoryBase<RestockDbContext, ShoppingItem>,
     {
-        public IEnumerable<string> GetAll()
+        //public ShoppingItemRepository(Func<RestockDbContext> dbContextCreator) : base(dbContextCreator)
+        //{
+        //}
+        private RestockDbContext _dbContext { get; }
+
+        public ShoppingItemRepository(RestockDbContext dbContextCreator)
         {
-            return new List<string>()
-            {
-                "Item 1232323", "Item 2"
-            };
+            _dbContext = dbContextCreator;
+        }
+
+        public IEnumerable<ShoppingItem> GetAll()
+        {
+            return _dbContext.Set<ShoppingItem>().ToList();
         }
     }
 }
