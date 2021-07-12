@@ -1,27 +1,19 @@
 ﻿using ReStock.DataProvider;
 using ReStock.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ReStock.Web.Services.Data
 {
-    public class StockRepository : IStockRepository //RepositoryBase<RestockDbContext, StockItem>,
+    public class StockRepository : RepositoryBase<RestockDbContext, StockItem>, IStockRepository 
     {
-        private RestockDbContext _dbContext { get; }
-
-        public StockRepository(RestockDbContext dbContextCreator)
+        public StockRepository(RestockDbContext dbContextCreator) : base(dbContextCreator)
         {
-            _dbContext = dbContextCreator;
         }
 
         public IEnumerable<StockItem> GetAll()
         {
             return _dbContext.Set<StockItem>().ToList();
         }
-
-        //public StockRepository(Func<RestockDbContext> dbContextCreator) : base(dbContextCreator)
-        //{
-        //}
     }
 }

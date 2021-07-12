@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,44 +13,39 @@ namespace ReStock.Web.Services.Data
         where TDbContext : DbContext
         where TEntity : class
     {
-        protected Func<TDbContext> DbContextCreator { get; }
+        protected TDbContext _dbContext { get; }
 
-        public RepositoryBase(Func<TDbContext> dbContextCreator)
+        public RepositoryBase(TDbContext dbContextCreator)
         {
-            DbContextCreator = dbContextCreator;
+            _dbContext = dbContextCreator;
         }
 
         public virtual async Task AddAsync(TEntity model)
         {
-            using var _filmDbContext = DbContextCreator();
-            await _filmDbContext.AddAsync(model);
-            await _filmDbContext.SaveChangesAsync();
+            await _dbContext.AddAsync(model);
+            await _dbContext.SaveChangesAsync();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            using var _filmDbContext = DbContextCreator();
-            return await _filmDbContext.Set<TEntity>().ToListAsync();
+            return await _dbContext.Set<TEntity>().ToListAsync();
         }
 
         public virtual async Task<TEntity> GetByIdAsync(int modelId)
         {
-            using var _filmDbContext = DbContextCreator();
-            return await _filmDbContext.Set<TEntity>().FindAsync(modelId);
+            return await _dbContext.Set<TEntity>().FindAsync(modelId);
         }
 
         public virtual async Task UpdateAsync(TEntity model)
         {
-            using var _filmDbContext = DbContextCreator();
-            _filmDbContext.Set<TEntity>().Update(model);
-            await _filmDbContext.SaveChangesAsync();
+            _dbContext.Set<TEntity>().Update(model);
+            await _dbContext.SaveChangesAsync();
         }
 
         public virtual async Task RemoveAsync(TEntity model)
         {
-            using var _filmDbContext = DbContextCreator();
-            _filmDbContext.Set<TEntity>().Remove(model);
-            await _filmDbContext.SaveChangesAsync();
+            _dbContext.Set<TEntity>().Remove(model);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
