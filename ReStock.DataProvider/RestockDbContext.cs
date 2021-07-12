@@ -5,9 +5,12 @@ using System;
 
 namespace ReStock.DataProvider
 {
-    class RestockDbContext : DbContext
+    public class RestockDbContext : DbContext
     {
         public DbSet<StockItem> Books { get; set; }
+        //public RestockDbContext(DbContextOptions<RestockDbContext> options) : base(options)
+        //{
+        //}
 
         public RestockDbContext() : base()
         {
@@ -18,7 +21,8 @@ namespace ReStock.DataProvider
         /// </summary>
         /// <param name="options"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlServer(@"Server = (LocalDB)\MSSQLLocalDB; Database=ReStockDb; Trusted_Connection=True; Integrated Security = True");
+        => options.UseSqlServer(@"Server = (LocalDB)\MSSQLLocalDB; Database=ReStockDb; Trusted_Connection=True;MultipleActiveResultSets=true");
+        //=> options.UseSqlServer(@"Server = (LocalDB)\MSSQLLocalDB; Database=ReStockDb; Trusted_Connection=True; Integrated Security = True");
 
         /// <summary>
         /// Seeding data
