@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using ReStock.Models;
+using System.Collections.Generic;
 
 namespace ReStock.Web.Services.Data
 {
-    public interface IStockRepository
+    public interface IStockRepository //: IRepositoryBase<StockItem>
     {
-        IEnumerable<string> GetAll();
+        IEnumerable<StockItem> GetAll();
     }
 }
