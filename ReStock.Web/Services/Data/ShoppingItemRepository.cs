@@ -13,7 +13,7 @@ namespace ReStock.Web.Services.Data
         
         public IEnumerable<ShoppingItem> GetAll()
         {
-            return _dbContext.Set<ShoppingItem>().ToList();
+            return DbContext.Set<ShoppingItem>().ToList();
         }
     }
 }

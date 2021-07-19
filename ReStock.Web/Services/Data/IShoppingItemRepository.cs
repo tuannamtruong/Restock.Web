@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace ReStock.Web.Services.Data
 {
-    public interface IShoppingItemRepository : IRepositoryBase<ShoppingItem>
+    public interface IShoppingItemRepository
     {
-        IEnumerable<ShoppingItem> GetAll();
     }
 }

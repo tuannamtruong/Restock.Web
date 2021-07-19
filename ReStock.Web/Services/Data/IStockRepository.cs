@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace ReStock.Web.Services.Data
 {
-    public interface IStockRepository : IRepositoryBase<StockItem>
+    public interface IStockRepository
     {
-        IEnumerable<StockItem> GetAll();
     }
 }

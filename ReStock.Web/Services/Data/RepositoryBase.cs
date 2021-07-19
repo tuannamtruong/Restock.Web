@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ReStock.Web.Services.Data
@@ -13,39 +14,45 @@ namespace ReStock.Web.Services.Data
         where TDbContext : DbContext
         where TEntity : class
     {
-        protected TDbContext _dbContext { get; }
+        protected TDbContext DbContext { get; }
 
         public RepositoryBase(TDbContext dbContextCreator)
         {
-            _dbContext = dbContextCreator;
+            DbContext = dbContextCreator;
         }
 
         public virtual async Task AddAsync(TEntity model)
         {
-            await _dbContext.AddAsync(model);
-            await _dbContext.SaveChangesAsync();
+            await DbContext.AddAsync(model);
+            await DbContext.SaveChangesAsync();
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await _dbContext.Set<TEntity>().ToListAsync();
+            return await DbContext.Set<TEntity>().ToListAsync();
         }
 
         public virtual async Task<TEntity> GetByIdAsync(int modelId)
         {
-            return await _dbContext.Set<TEntity>().FindAsync(modelId);
+            return await DbContext.Set<TEntity>().FindAsync(modelId);
         }
 
         public virtual async Task UpdateAsync(TEntity model)
         {
-            _dbContext.Set<TEntity>().Update(model);
-            await _dbContext.SaveChangesAsync();
+            DbContext.Set<TEntity>().Update(model);
+            await DbContext.SaveChangesAsync();
         }
 
         public virtual async Task RemoveAsync(TEntity model)
         {
-            _dbContext.Set<TEntity>().Remove(model);
-            await _dbContext.SaveChangesAsync();
+            DbContext.Set<TEntity>().Remove(model);
+            await DbContext.SaveChangesAsync();
+        }
+
+
+        public IEnumerable<TEntity> GetAll()
+        {
+            return DbContext.Set<TEntity>().ToList();
         }
     }
 }

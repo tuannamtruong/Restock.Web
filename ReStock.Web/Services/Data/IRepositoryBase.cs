@@ -10,5 +10,7 @@ namespace ReStock.Web.Services.Data
         Task<TEntity> GetByIdAsync(int modelId);
         Task RemoveAsync(TEntity model);
         Task UpdateAsync(TEntity model);
+
+        IEnumerable<TEntity> GetAll();
     }
 }
