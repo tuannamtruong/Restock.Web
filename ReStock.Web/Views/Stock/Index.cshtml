@@ -11,20 +11,22 @@
     <script src="~/js/stock.js" asp-append-version="true" type="module"></script>
 }
 
-
+<a asp-action="AddShoppingItem">asdf</a>
 <div id="backdrop"></div>
 <!-- Modal for adding specific shopping list item -->
 <div class="modal" id="addModal">
-    <div class="modalContent">
-        <label for="itemName">Item name:</label>
-        <input type="text" name="itemName" id="itemName" />
-        <label for="itemAmount">Amount:</label>
-        <input type="text" name="itemAmount" id="itemAmount" />
-    </div>
-    <div class="modalAction">
-        <button class="btn btnNo">Cancel</button>
-        <button class="btn btnYes">Add</button>
-    </div>
+    <form method="post">
+        <div class="modalContent">
+            <label for="ItemName">Item name:</label>
+            <input type="text" name="ItemName" id="itemName" />
+            <label for="Amount">Amount:</label>
+            <input type="text" name="Amount" id="itemAmount" />
+        </div>
+        <div class="modalAction">
+            <button class="btn btnNo">Cancel</button>
+            <button class="btn btnYes" type="submit">Add</button>
+        </div>
+    </form>
 </div>
 
 <!-- Shopping List  -->
@@ -33,16 +35,16 @@
     <div class="listCheckBoxContainer" id="shoppingList">
         @foreach(var shoppingItem in Model.ShoppingListItems)
         {
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-                @shoppingItem.ItemName.ToUpperFirstChar()
-                @if(!string.IsNullOrEmpty(shoppingItem.Amount))
-                {
-                <a>(@shoppingItem.Amount)</a>
-                }
-            </label>
-        </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    @shoppingItem.ItemName.ToUpperFirstChar()
+                    @if(!string.IsNullOrEmpty(shoppingItem.Amount))
+                    {
+                        <a>(@shoppingItem.Amount)</a>
+                    }
+                </label>
+            </div>
         }
     </div>
     <!--Item Action-->
@@ -54,31 +56,33 @@
 <!-- Stock  -->
 <div class="d-flex mt-5">
     <!--One table for each category-->
-    @foreach(var item in Model.StockItemGroupByType){
-    <div class="flex-fill">
-        <table class="table table-bordered table-striped stockTable">
-            <!--Table header: Stock type-->
-            <tr class="thead-dark">
-                <th colspan="2" scope="col">
-                    @item.Key
-                </th>
-            </tr>
-            <!--Table content: Stock item for each type-->
-            @foreach(var value in item.Value){
-            <tr>
-                <td>
-                    @value.Name
-                    <button class="stockTableRemoveFromShoppingListButton">-</button>
-                    <button class="stockTableAddToShoppingListButton">+</button>
-                </td>
-                <td>
-                    @value.Amount
-                </td>
-            </tr>
-            }
-        </table>
-    </div>
-}
+    @foreach(var item in Model.StockItemGroupByType)
+    {
+        <div class="flex-fill">
+            <table class="table table-bordered table-striped stockTable">
+                <!--Table header: Stock type-->
+                <tr class="thead-dark">
+                    <th colspan="2" scope="col">
+                        @item.Key
+                    </th>
+                </tr>
+                <!--Table content: Stock item for each type-->
+                @foreach(var value in item.Value)
+                {
+                    <tr>
+                        <td>
+                            @value.Name
+                            <button class="stockTableRemoveFromShoppingListButton">-</button>
+                            <button class="stockTableAddToShoppingListButton">+</button>
+                        </td>
+                        <td>
+                            @value.Amount
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
 </div>
 
 

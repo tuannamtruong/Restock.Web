@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ReStock.Models;
 using ReStock.Web.Services.Data;
 using ReStock.Web.ViewModels;
 using System.Diagnostics;
@@ -36,6 +37,13 @@ namespace ReStock.Web.Controllers
             };
             return View(viewModel);
         }
+
+        //[HttpPost]
+        //public IActionResult AddShoppingItem(ShoppingItem shoppingItem)
+        //{
+        //    _shoppingItemRepository.AddAsync(shoppingItem);
+        //    //return View(nameof(Index));
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

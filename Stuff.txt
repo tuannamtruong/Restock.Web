@@ -1,0 +1,7 @@
+  <label asp-for="Subject">Subject:</label>
+  <br />
+  <input type="text" asp-for="Subject" />
+  <span asp-validation-for="Subject"></span>
+  
+  
+Hiding path MVC. Custom URI

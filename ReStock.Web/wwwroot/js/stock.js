@@ -21,12 +21,10 @@ const closeAddShoppingItemModal = () => addShoppingItemModal.classList.remove("v
  */
 const addItemToShoppingList = (itemname) => {
     if (typeof itemname === "string" || itemname instanceof String) {
-        // Add item in UI
         const newItemToBuy = document.createElement("label");
         newItemToBuy.className = "checkBoxText";
         newItemToBuy.innerHTML = `<input type="checkbox" /> ${itemname}`;
         shoppingList.appendChild(newItemToBuy);
-        // Add item in DB
     }
 };
 
