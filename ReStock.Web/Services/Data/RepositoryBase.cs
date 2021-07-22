@@ -50,7 +50,7 @@ namespace ReStock.Web.Services.Data
         }
 
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return DbContext.Set<TEntity>().ToList();
         }
