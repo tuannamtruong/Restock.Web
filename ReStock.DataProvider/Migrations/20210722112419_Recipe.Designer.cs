@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReStock.DataProvider;
 
 namespace ReStock.DataProvider.Migrations
 {
     [DbContext(typeof(RestockDbContext))]
-    partial class RestockDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210722112419_Recipe")]
+    partial class Recipe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

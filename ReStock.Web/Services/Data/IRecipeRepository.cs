@@ -1,6 +1,8 @@
-﻿namespace ReStock.Web.Services.Data
+﻿using ReStock.Models;
+
+namespace ReStock.Web.Services.Data
 {
-    internal interface IRecipeRepository
+    public interface IRecipeRepository : IRepositoryBase<Recipe>
     {
     }
 }

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +25,7 @@ namespace ReStock.Web
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddTransient<IShoppingItemRepository, ShoppingItemRepository>();
+            services.AddTransient<IRecipeRepository, RecipeRepository>();
             services.AddTransient<IStockRepository, StockRepository>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
@@ -52,9 +52,10 @@ namespace ReStock.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Stock}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Stock}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
