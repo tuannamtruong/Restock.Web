@@ -10,10 +10,10 @@ namespace ReStock.Web.Controllers
 {
     public class RecipeController : Controller
     {
-        private readonly ILogger<StockController> _logger;
+        private readonly ILogger<RecipeController> _logger;
         private readonly IRecipeRepository _recipeRepository;
 
-        public RecipeController(ILogger<StockController> logger,
+        public RecipeController(ILogger<RecipeController> logger,
                                 IRecipeRepository recipeRepository)
         {
             _logger = logger;
