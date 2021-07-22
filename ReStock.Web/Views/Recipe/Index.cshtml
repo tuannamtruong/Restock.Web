@@ -1,22 +1,27 @@
-﻿
+﻿@model IEnumerable<Recipe>
 @{
     ViewData["Title"] = "Recipe";
 }
 @section Styles {
     <link href="@Url.Content("~/css/recipe.css")" rel="stylesheet" type="text/css" />
 }
-<h1>Name of the recipe</h1>
-<div class="d-flex flex-nowrap">
-        <!-- Loop this BEGIN -->
+@foreach(Recipe recipe in @Model)
+{
+    <h1>@recipe.Name</h1>
+    @if(@recipe.CookTime > 0)
+    {
+        <p>@recipe.CookTime minutes</p>
+    }
+    <div class="d-flex flex-nowrap">
         <div id="listIngridients" class="col-3 m-1">
             <label class="textIngredient"> Ingridient 1 </label>
             <label class="textIngredient"> Ingridient 2 </label>
         </div>
         <div id="cookInstruction" class="col-9 m-1">
-            <p>Do this do that. Food.</p>
+            <p>@recipe.Instruction</p>
         </div>
-        <!-- Loop this END -->
-</div>
+    </div>
+}
 
 <!--To the navbar-->
 <div>

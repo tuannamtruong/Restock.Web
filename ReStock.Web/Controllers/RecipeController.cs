@@ -22,7 +22,7 @@ namespace ReStock.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_recipeRepository.GetAll());
         }
 
         public IActionResult ListRecipe()
