@@ -52,10 +52,10 @@ namespace ReStock.Web
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Stock}/{action=Index}/{id?}");
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Recipe}/{action=ListRecipe}/{id?}");
+                //endpoints.MapDefaultControllerRoute();
             });
         }
     }
