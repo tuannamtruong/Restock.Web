@@ -21,10 +21,11 @@ namespace ReStock.Tests.Controllers
             _loggerMock = new Mock<ILogger<RecipeController>>();
             List<Recipe> mockData = new List<Recipe>()
             {
-                new Recipe { Id = 1, Name = "Pork ribs", CookTime = 180, Instruction = "Do this then that then boom" },
-                new Recipe { Id = 2, Name = "Salat", CookTime = 20 },
-                new Recipe { Id = 3, Name = "Meatballs", Instruction = "Just this. Then .... Finally" },
-                new Recipe { Id = 4, Name = "Boiling Eggs" }
+                new Recipe { Id = 1, Name = "R1", CookTime = 180, Instruction = "Do this then that then boom" },
+                new Recipe { Id = 2, Name = "R2", CookTime = 20 },
+                new Recipe { Id = 3, Name = "R3", Instruction = "Just this. Then .... Finally" },
+                new Recipe { Id = 4, Name = "R4" },
+                new Recipe { Id = 5, Name = "R5", CookTime = 8, Instruction = "Eat it" },
             };
             _repoMock = new Mock<IRecipeRepository>();
             _repoMock.Setup(r => r.GetAll()).Returns(mockData);
@@ -33,11 +34,22 @@ namespace ReStock.Tests.Controllers
         }
 
         [Fact]
-        public void ListRecipe_GetAllFromRepo_ShouldGetCorrectData()
+        public void Index_GetAllFromRepo_ShouldGetCorrectData()
         {
-            var result = (_controller.ListRecipe() as ViewResult)?.ViewData.Model as IEnumerable<string>;
+            var result = (_controller.Index() as ViewResult)?.ViewData.Model as IEnumerable<string>;
+            Assert.Equal(5, result.ToList().Count);
+        }
 
-            Assert.Equal(4, result.ToList().Count);
+        [Fact]
+        public void ListRecipeDetail_GetAllFromRepo_CanPaginate()
+        {
+            _controller.PageSize = 3;
+            IEnumerable<Recipe> result = (_controller.ListRecipeDetail(2) as ViewResult).ViewData.Model
+                                            as IEnumerable<Recipe>;
+            Recipe[] prodArray = result.ToArray();
+            Assert.True(prodArray.Length == 2);
+            Assert.Equal("R4", prodArray[0].Name);
+            Assert.Equal("R5", prodArray[1].Name);
         }
     }
 }
