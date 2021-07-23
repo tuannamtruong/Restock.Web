@@ -5,28 +5,39 @@
 @section Styles {
     <link href="@Url.Content("~/css/recipe.css")" rel="stylesheet" type="text/css" />
 }
+
+<div page-model="@Model.PagingInfo" page-action="RecipeListDetail" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>
+
 <div>
 
     @foreach(Recipe recipe in @Model.Recipes)
     {
-        <h1>@recipe.Name</h1>
-        @if(@recipe.CookTime > 0)
-        {
-            <p>@recipe.CookTime minutes</p>
-        }
-        <div class="d-flex flex-nowrap">
-            <div id="listIngridients" class="col-3 m-1">
-                <label class="textIngredient"> Ingridient 1 </label>
-                <label class="textIngredient"> Ingridient 2 </label>
+        <div class="card-outline-primary m-1 col-12 p-1">
+            <div class="bg-faded p-1">
+                <h4>
+                    @recipe.Name
+                </h4>
             </div>
-            <div id="cookInstruction" class="col-9 m-1">
-                <p>@recipe.Instruction</p>
+            @if(@recipe.CookTime > 0)
+            {
+                <p>@recipe.CookTime minutes</p>
+            }
+            <div class="d-flex flex-nowrap">
+                <div id="listIngridients" class="col-3 m-1">
+                    <label class="textIngredient"> Ingridient 1 </label>
+                    <label class="textIngredient"> Ingridient 2 </label>
+                </div>
+                <div id="cookInstruction" class="col-9 m-1">
+                    <p>@recipe.Instruction</p>
+                </div>
             </div>
         </div>
     }
 
 </div>
-<div page-model="@Model.PagingInfo" page-action="RecipeListDetail"></div>
 
 <!--To the navbar-->
 @*<div>
