@@ -5,7 +5,6 @@ using ReStock.Web.Services.Data;
 using ReStock.Web.ViewModels;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 
 namespace ReStock.Web.Controllers
 {
@@ -13,7 +12,6 @@ namespace ReStock.Web.Controllers
     {
         private readonly ILogger<RecipeController> _logger;
         private readonly IRecipeRepository _recipeRepository;
-        public int PageSize = 4;
 
         public RecipeController(ILogger<RecipeController> logger,
                                 IRecipeRepository recipeRepository)
@@ -24,23 +22,22 @@ namespace ReStock.Web.Controllers
 
         public IActionResult Index()
         {
+            return View(_recipeRepository.GetAll());
+        }
+
+        public IActionResult ListRecipe()
+        {
             List<string> results = new List<string>();
             foreach(Recipe p in _recipeRepository.GetAll())
             {
                 string name = p?.Name;
                 decimal? price = p?.CookTime;
-                results.Add(string.Format("Name: {0}, Time: {1} mins", name, price));
+                string instruction = p?.Instruction ?? "TBA";
+                results.Add(string.Format("Name: {0}, Price: {1}, Instruction: {2}", name, price, instruction));
             }
-            return View("ListRecipe", results);
+            return View(results);
         }
 
-        public IActionResult ListRecipeDetail(int recipePage = 1)
-        {
-            return View(_recipeRepository.GetAll()
-                .OrderBy(r => r.Name)
-                .Skip((recipePage - 1) * PageSize)
-                .Take(PageSize));
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
