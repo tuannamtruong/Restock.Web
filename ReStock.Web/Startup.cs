@@ -53,8 +53,12 @@ namespace ReStock.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "pagination",
+                    pattern: "Recipes/Page{recipePage}",
+                    new { Controller = "Recipe", action = "RecipeListDetail" });
+                endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Recipe}/{action=Index}/{id?}");
+                    pattern: "{controller=Recipe}/{action=RecipeListDetail}/{id?}");
                 //endpoints.MapDefaultControllerRoute();
             });
         }
