@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructures\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ReStock.DataProvider\ReStock.DataProvider.csproj" />
     <ProjectReference Include="..\ReStock.Models\ReStock.Models.csproj" />
   </ItemGroup>
