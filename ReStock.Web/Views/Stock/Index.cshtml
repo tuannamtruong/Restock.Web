@@ -48,30 +48,7 @@
     <!--One table for each category-->
     @foreach(var item in Model.StockItemGroupByType)
     {
-        <div class="flex-fill">
-            <table class="table table-bordered table-striped stockTable">
-                <!--Table header: Stock type-->
-                <tr class="thead-dark">
-                    <th colspan="2" scope="col">
-                        @item.Key
-                    </th>
-                </tr>
-                <!--Table content: Stock item for each type-->
-                @foreach(var value in item.Value)
-                {
-                    <tr>
-                        <td>
-                            @value.Name
-                            <button class="stockTableRemoveFromShoppingListButton">-</button>
-                            <button class="stockTableAddToShoppingListButton">+</button>
-                        </td>
-                        <td>
-                            @value.Amount
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
+        <partial name="~/Views/Shared/Element/StockTable.cshtml" model="item" />
     }
 </div>
 

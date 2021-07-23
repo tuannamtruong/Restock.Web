@@ -61,10 +61,10 @@ addShoppingItemButton.addEventListener("click", handleAddShoppingItemButtonClick
 confirmShoppingItemButton.addEventListener("click",handleConfirmShoppingItemButtonClick);
 cancelShoppingItemButton.addEventListener("click",handleCancelShoppingItemButtonClick);
 /**
-* Add click event handler for all element with class "stockTableAddToShoppingListButton".
+* Add click event handler for all element with class "increaseStockButton".
 * Add stock item name direct to the shopping list.
 */
-$(".stockTableAddToShoppingListButton").click(function () {
+$(".increaseStockButton").click(function () {
     let ingredientName = this.parentNode.firstChild.nodeValue;
     addItemToShoppingList(ingredientName);
 });

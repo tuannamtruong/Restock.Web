@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ReStock.Models;
 using ReStock.Web.Services.Data;
 using ReStock.Web.ViewModels;
 using System.Diagnostics;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ReStock.Web.Controllers
 {
@@ -35,6 +35,10 @@ namespace ReStock.Web.Controllers
                 ShoppingListItems = _shoppingItemRepository.GetAll().ToList(),
                 StockItemGroupByType = stockItemGroupByTpe
             };
+            foreach(KeyValuePair<Models.StockType, List<(string Name, string Amount)>> item in stockItemGroupByTpe)
+            {
+
+            }
             return View(viewModel);
         }
 
