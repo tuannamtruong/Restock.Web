@@ -1,0 +1,21 @@
+﻿@model Recipe
+<div class="card-outline-primary m-1 col-12 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model.Name
+        </h4>
+    </div>
+    @if(@Model.CookTime > 0)
+    {
+        <p>@Model.CookTime minutes</p>
+    }
+    <div class="d-flex flex-nowrap">
+        <div id="listIngridients" class="col-3 m-1">
+            <label class="textIngredient"> Ingridient 1 </label>
+            <label class="textIngredient"> Ingridient 2 </label>
+        </div>
+        <div id="cookInstruction" class="col-9 m-1">
+            <p>@Model.Instruction</p>
+        </div>
+    </div>
+</div>

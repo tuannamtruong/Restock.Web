@@ -12,31 +12,10 @@
 </div>
 
 <div>
-
     @foreach(Recipe recipe in @Model.Recipes)
     {
-        <div class="card-outline-primary m-1 col-12 p-1">
-            <div class="bg-faded p-1">
-                <h4>
-                    @recipe.Name
-                </h4>
-            </div>
-            @if(@recipe.CookTime > 0)
-            {
-                <p>@recipe.CookTime minutes</p>
-            }
-            <div class="d-flex flex-nowrap">
-                <div id="listIngridients" class="col-3 m-1">
-                    <label class="textIngredient"> Ingridient 1 </label>
-                    <label class="textIngredient"> Ingridient 2 </label>
-                </div>
-                <div id="cookInstruction" class="col-9 m-1">
-                    <p>@recipe.Instruction</p>
-                </div>
-            </div>
-        </div>
+        <partial name="~/Views/Shared/Element/RecipeDetail.cshtml" model="recipe" />
     }
-
 </div>
 
 <!--To the navbar-->
