@@ -80,7 +80,15 @@ namespace ReStock.DataProvider
                        new Recipe { Id = 1, Name = "Pork ribs", CookTime = 180, Instruction = "Do this then that then boom" },
                        new Recipe { Id = 2, Name = "Salat", CookTime = 20 },
                        new Recipe { Id = 3, Name = "Meatballs", Instruction = "Just this. Then .... Finally" },
-                       new Recipe { Id = 4, Name = "Boiling Eggs" }
+                       new Recipe { Id = 4, Name = "Boiling Eggs" },
+                       new Recipe { Id = 5, Name = "Meat n Eggs", CookTime = 180, Instruction = "Do this then that then boom" },
+                       new Recipe { Id = 6, Name = "Bolognese", CookTime = 20 },
+                       new Recipe { Id = 7, Name = "Steak Diane", Instruction = "Just this. Then .... Finally" },
+                       new Recipe { Id = 8, Name = "Lasagne" },
+                       new Recipe { Id = 9, Name = "Fishy", CookTime = 180, Instruction = "Do this then that then boom" },
+                       new Recipe { Id = 10, Name = "Sushi", CookTime = 20 },
+                       new Recipe { Id = 11, Name = "Stuffy", Instruction = "Just this. Then .... Finally" },
+                       new Recipe { Id = 12, Name = "Ricey" }
                        );
         }
     }
