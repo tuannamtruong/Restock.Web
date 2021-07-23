@@ -10,7 +10,7 @@ namespace ReStock.Web.Services.Data
     /// </summary>
     /// <typeparam name="TDbContext">DBContext</typeparam>
     /// <typeparam name="TEntity">Model class</typeparam>
-    public class RepositoryBase<TDbContext, TEntity> : IRepositoryBase<TEntity> 
+    public class RepositoryBase<TDbContext, TEntity> : IRepositoryBase<TEntity>
         where TDbContext : DbContext
         where TEntity : class
     {
@@ -40,19 +40,25 @@ namespace ReStock.Web.Services.Data
         public virtual async Task UpdateAsync(TEntity model)
         {
             DbContext.Set<TEntity>().Update(model);
-            await DbContext.SaveChangesAsync();
         }
 
         public virtual async Task RemoveAsync(TEntity model)
         {
             DbContext.Set<TEntity>().Remove(model);
-            await DbContext.SaveChangesAsync();
         }
 
-
+        public virtual async Task SaveChangesAsync()
+        {
+            await DbContext.SaveChangesAsync();
+        }
         public virtual IEnumerable<TEntity> GetAll()
         {
             return DbContext.Set<TEntity>().ToList();
+        }
+
+        public virtual void Update(TEntity model)
+        {
+            DbContext.Set<TEntity>().Update(model);
         }
     }
 }

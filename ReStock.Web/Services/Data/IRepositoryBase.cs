@@ -12,5 +12,6 @@ namespace ReStock.Web.Services.Data
         Task UpdateAsync(TEntity model);
 
         IEnumerable<TEntity> GetAll();
+        Task SaveChangesAsync();
     }
 }

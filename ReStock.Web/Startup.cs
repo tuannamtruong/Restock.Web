@@ -58,8 +58,8 @@ namespace ReStock.Web
                     new { Controller = "Recipe", action = "RecipeListDetail" });
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Recipe}/{action=RecipeListDetail}/{id?}");
-                //endpoints.MapDefaultControllerRoute();
+                    pattern: "{controller=Recipe}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
