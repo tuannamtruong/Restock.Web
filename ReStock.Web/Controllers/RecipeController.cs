@@ -31,15 +31,24 @@ namespace ReStock.Web.Controllers
                 decimal? price = p?.CookTime;
                 results.Add(string.Format("Name: {0}, Time: {1} mins", name, price));
             }
-            return View("ListRecipe", results);
+            return View("RecipeList", results);
         }
 
-        public IActionResult ListRecipeDetail(int recipePage = 1)
+        public ViewResult RecipeListDetail(int recipePage = 1)
         {
-            return View(_recipeRepository.GetAll()
-                .OrderBy(r => r.Name)
+            return View(new RecipeListDetailViewModel
+            {
+                Recipes = _recipeRepository.GetAll()
+                .OrderBy(r => r.Id)
                 .Skip((recipePage - 1) * PageSize)
-                .Take(PageSize));
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = recipePage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = _recipeRepository.GetAll().Count()
+                }
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

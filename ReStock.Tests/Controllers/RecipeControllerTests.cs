@@ -4,6 +4,7 @@ using Moq;
 using ReStock.Models;
 using ReStock.Web.Controllers;
 using ReStock.Web.Services.Data;
+using ReStock.Web.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -31,6 +32,7 @@ namespace ReStock.Tests.Controllers
             _repoMock.Setup(r => r.GetAll()).Returns(mockData);
 
             _controller = new RecipeController(_loggerMock.Object, _repoMock.Object);
+            _controller.PageSize = 3;
         }
 
         [Fact]
@@ -41,15 +43,24 @@ namespace ReStock.Tests.Controllers
         }
 
         [Fact]
-        public void ListRecipeDetail_GetAllFromRepo_CanPaginate()
+        public void RecipeListDetail_GetAllFromRepo_CanPaginate()
         {
-            _controller.PageSize = 3;
-            IEnumerable<Recipe> result = (_controller.ListRecipeDetail(2) as ViewResult).ViewData.Model
-                                            as IEnumerable<Recipe>;
-            Recipe[] prodArray = result.ToArray();
+            RecipeListDetailViewModel result = _controller.RecipeListDetail(2).ViewData.Model as RecipeListDetailViewModel;
+            Recipe[] prodArray = result.Recipes.ToArray();
             Assert.True(prodArray.Length == 2);
             Assert.Equal("R4", prodArray[0].Name);
             Assert.Equal("R5", prodArray[1].Name);
+        }
+
+        [Fact]
+        public void RecipeListDetail_GetAllFromRepo_CanSendPaginationViewModel()
+        {
+            RecipeListDetailViewModel result = _controller.RecipeListDetail(2).ViewData.Model as RecipeListDetailViewModel;
+            PagingInfo pageInfo = result.PagingInfo;
+            Assert.Equal(2, pageInfo.CurrentPage);
+            Assert.Equal(3, pageInfo.ItemsPerPage);
+            Assert.Equal(5, pageInfo.TotalItems);
+            Assert.Equal(2, pageInfo.TotalPages);
         }
     }
 }

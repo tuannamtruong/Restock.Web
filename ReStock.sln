@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReStock.DataProvider", "ReS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReStock.Models", "ReStock.Models\ReStock.Models.csproj", "{62BD7AA6-6ABE-4F14-8056-6BDAF0C82BF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReStock.Tests", "ReStock.Tests\ReStock.Tests.csproj", "{53094B58-F8D7-4367-9929-5EDDF2F317CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReStock.Tests", "ReStock.Tests\ReStock.Tests.csproj", "{53094B58-F8D7-4367-9929-5EDDF2F317CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{B93F1388-84A4-4EA5-929E-60E33EACA8AE}"
+	ProjectSection(SolutionItems) = preProject
+		Things.txt = Things.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
