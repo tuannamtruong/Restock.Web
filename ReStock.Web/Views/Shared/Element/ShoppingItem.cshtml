@@ -1,0 +1,13 @@
+﻿@using ReStock.Web.Services.Utils
+@model ShoppingItem
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+        @Model.ItemName.ToUpperFirstChar()
+        @if(!string.IsNullOrEmpty(Model.Amount))
+        {
+            <a>(@Model.Amount)</a>
+        }
+    </label>
+</div>
