@@ -1,1 +1,3 @@
-
+How to write TagHelper really
+CSS for Stock
+REST API for other server
