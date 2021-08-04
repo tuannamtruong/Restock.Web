@@ -45,7 +45,7 @@ namespace ReStock.Tests.Controllers
         [Fact]
         public void RecipeListDetail_GetAllFromRepo_CanPaginate()
         {
-            RecipeListDetailViewModel result = _controller.RecipeListDetail(2).ViewData.Model as RecipeListDetailViewModel;
+            RecipeListDetailViewModel result = _controller.RecipeListDetail(null, 2).ViewData.Model as RecipeListDetailViewModel;
             Recipe[] prodArray = result.Recipes.ToArray();
             Assert.True(prodArray.Length == 2);
             Assert.Equal("R4", prodArray[0].Name);
@@ -55,7 +55,7 @@ namespace ReStock.Tests.Controllers
         [Fact]
         public void RecipeListDetail_GetAllFromRepo_CanSendPaginationViewModel()
         {
-            RecipeListDetailViewModel result = _controller.RecipeListDetail(2).ViewData.Model as RecipeListDetailViewModel;
+            RecipeListDetailViewModel result = _controller.RecipeListDetail(null, 2).ViewData.Model as RecipeListDetailViewModel;
             PagingInfo pageInfo = result.PagingInfo;
             Assert.Equal(2, pageInfo.CurrentPage);
             Assert.Equal(3, pageInfo.ItemsPerPage);

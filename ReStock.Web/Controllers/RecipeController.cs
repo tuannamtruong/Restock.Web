@@ -39,7 +39,7 @@ namespace ReStock.Web.Controllers
             return View(new RecipeListDetailViewModel
             {
                 Recipes = _recipeRepository.GetAll()
-                .Where(r => category == null || r.Categories.Contains(category))
+                .Where(r => category == null || r.Categories.Contains((RecipeCategory)category))
                 .OrderBy(r => r.Id)
                 .Skip((recipePage - 1) * PageSize)
                 .Take(PageSize),
