@@ -17,6 +17,6 @@ namespace ReStock.Models
         public string Name { get; set; }
         public int? CookTime { get; set; }
         public string Instruction { get; set; }
-        public ICollection<RecipeCategory> Categories { get; set; }
+        public ICollection<RecipeCategory?> Categories { get; set; }
     }
 }
