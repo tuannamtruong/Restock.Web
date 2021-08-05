@@ -19,6 +19,7 @@ namespace ReStock.Web.Components
             {
                 categories.Add(category.ToString());
             }
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
             return View(categories);
         }
     }
