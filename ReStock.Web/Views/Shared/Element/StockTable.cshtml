@@ -1,38 +1,5 @@
 ﻿@model KeyValuePair<StockType, List<(string Name, string Amount)>>
 
-<style>
-    .stockTable {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-        .stockTable tr th {
-            height: 40px;
-            border: 1px solid #ddd;
-            padding: 6px;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-        }
-        .stockTable tr td {
-        }
-
-    .decreaseStockButton {
-        float: right;
-        border: hidden;
-        background: none;
-        font-size: 18px;
-        color: red;
-    }
-
-    .increaseStockButton {
-        float: right;
-        border: hidden;
-        color: green;
-        background: none;
-        font-size: 18px;
-        margin-right: 8px;
-    }
-</style>
-
 <div class="flex-fill">
     <table class="table table-bordered table-striped stockTable">
         <!--Table header: Stock type-->

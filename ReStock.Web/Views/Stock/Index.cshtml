@@ -6,8 +6,10 @@
 @section Scripts{
     <script src="~/js/stock.js" asp-append-version="true" type="module"></script>
 }
+@section Styles{
+    <link href="@Url.Content("~/css/stock.css")" rel="stylesheet" type="text/css" />
+}
 
-<a asp-action="AddShoppingItem">asdf</a>
 <div id="backdrop"></div>
 <!-- Modal for adding specific shopping list item -->
 <div class="modal" id="addModal">
@@ -25,28 +27,31 @@
     </form>
 </div>
 
-<!-- Shopping List  -->
-<div class="d-flex">
-    <!--Item List-->
-    <div class="listCheckBoxContainer" id="shoppingList">
-        @foreach(ShoppingItem shoppingItem in Model.ShoppingListItems)
+<a asp-action="AddShoppingItem">asdf</a>
+
+<div class="row m-1 p-1">
+    <!-- Shopping List  -->
+    <div class="d-flex">
+        <!--Item List-->
+        <div class="listCheckBoxContainer" id="shoppingList">
+            @foreach(ShoppingItem shoppingItem in Model.ShoppingListItems)
+            {
+                <partial name="~/Views/Shared/Element/ShoppingItem.cshtml" model="shoppingItem" />
+            }
+        </div>
+        <!--Item Action-->
+        <div class="ml-4">
+            <button type="button" class="btn btn-success" id="addShoppingItemBtn">+</button>
+        </div>
+    </div>
+
+    <!-- Stock  -->
+    <div class="d-flex mt-5">
+        <!--One table for each category-->
+        @foreach(var item in Model.StockItemGroupByType)
         {
-            <partial name="~/Views/Shared/Element/ShoppingItem.cshtml" model="shoppingItem" />
+            <partial name="~/Views/Shared/Element/StockTable.cshtml" model="item" />
         }
     </div>
-    <!--Item Action-->
-    <div class="ml-4">
-        <button type="button" class="btn btn-success" id="addShoppingItemBtn">+</button>
-    </div>
 </div>
-
-<!-- Stock  -->
-<div class="d-flex mt-5">
-    <!--One table for each category-->
-    @foreach(var item in Model.StockItemGroupByType)
-    {
-        <partial name="~/Views/Shared/Element/StockTable.cshtml" model="item" />
-    }
-</div>
-
 

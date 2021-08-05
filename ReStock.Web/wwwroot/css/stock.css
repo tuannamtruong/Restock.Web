@@ -1,0 +1,48 @@
+﻿/*  Shopping list checkbox
+-------------------------------------------------- */
+.listCheckBoxContainer {
+    border: 1px solid rgb(0, 0, 0);
+    width: 80vw;
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+    .listCheckBoxContainer .form-check:nth-child(odd) {
+        display: block;
+        background-color: rgb(29, 221, 221);
+    }
+
+/*  Stock table
+-------------------------------------------------- */
+.stockTable {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    .stockTable tr th {
+        height: 40px;
+        border: 1px solid #ddd;
+        padding: 6px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+    }
+
+    .stockTable tr td {
+    }
+
+.decreaseStockButton {
+    float: right;
+    border: hidden;
+    background: none;
+    font-size: 18px;
+    color: red;
+}
+
+.increaseStockButton {
+    float: right;
+    border: hidden;
+    color: green;
+    background: none;
+    font-size: 18px;
+    margin-right: 8px;
+}
