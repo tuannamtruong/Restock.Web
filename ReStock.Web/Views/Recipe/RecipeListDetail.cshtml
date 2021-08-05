@@ -6,18 +6,27 @@
     <link href="@Url.Content("~/css/recipe.css")" rel="stylesheet" type="text/css" />
 }
 
-<div page-model="@Model.PagingInfo" page-action="RecipeListDetail" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-outline-dark"
-     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
-     class="btn-group pull-right m-1">
+
+
+<div class="row m-1 p-1">
+    <div id="categories" class="col-3">
+        <vc:navigation-menu />
+    </div>
+    <div class="col-9">
+        <div page-model="@Model.PagingInfo" page-action="RecipeListDetail" page-classes-enabled="true"
+             page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
+             class="btn-group pull-right m-1">
+        </div>
+        <div>
+            @foreach(Recipe recipe in @Model.Recipes)
+            {
+                <partial name="~/Views/Shared/Element/RecipeDetail.cshtml" model="recipe" />
+            }
+        </div>
+    </div>
 </div>
 
-<div>
-    @foreach(Recipe recipe in @Model.Recipes)
-    {
-        <partial name="~/Views/Shared/Element/RecipeDetail.cshtml" model="recipe" />
-    }
-</div>
 
 <!--To the navbar-->
 @*<div>
