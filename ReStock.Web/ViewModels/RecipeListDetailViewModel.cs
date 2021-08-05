@@ -7,5 +7,6 @@ namespace ReStock.Web.ViewModels
     {
         public IEnumerable<Recipe> Recipes { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public RecipeCategory? CurrentCategory { get; set; }
     }
 }

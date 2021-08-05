@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using ReStock.Web.ViewModels;
+using System.Collections.Generic;
 
 namespace ReStock.Web.Infrastructures
 {
@@ -28,6 +29,10 @@ namespace ReStock.Web.Infrastructures
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
 
+
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
@@ -41,6 +46,8 @@ namespace ReStock.Web.Infrastructures
                 {
                     recipePage = i
                 });
+                PageUrlValues["recipePage"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
                 if(PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);

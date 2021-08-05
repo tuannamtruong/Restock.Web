@@ -68,7 +68,6 @@ namespace ReStock.Tests.Controllers
         public void RecipeListDetail_CanFilterByCategory()
         {
             var testCategory = RecipeCategory.Chicken;
-            //RecipeListDetailViewModel result = _controller.RecipeListDetail(null, 1).ViewData.Model as RecipeListDetailViewModel;
             RecipeListDetailViewModel result = _controller.RecipeListDetail(testCategory, 1).ViewData.Model as RecipeListDetailViewModel;
             Recipe[] recipeArray = result.Recipes.ToArray();
             Assert.Equal(2, recipeArray.Length);
